@@ -1,5 +1,5 @@
 import brand from './multimedia/Bosch-Logo.png';
-import 'bootstrap/dist/css/bootstrap.css'
+import CartWidget from './CartWidget';
 
 const NavBar = () => {
     return ( <nav className = "navbar navbar-expand-lg navbar-light bg-light">
@@ -25,6 +25,7 @@ const NavBar = () => {
                                 <button className="btn btn-outline-secondary me-md-2" type="button">LOGIN</button>
                             </div>
                         </ul>
+                        <CartWidget/>
                     </div>
                 </div>
             </nav>
