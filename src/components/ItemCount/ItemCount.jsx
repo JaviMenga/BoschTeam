@@ -23,8 +23,10 @@ const removeItem = () => {
     
 }
 
+// esta funcion debe pasarse como props y ser declarada en el parent
 const onAdd =() =>{
-    if(count!=initial){
+
+    if(count!==initial){
 
         console.log("se agregó el servicio al carrito")
 

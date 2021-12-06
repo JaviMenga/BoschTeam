@@ -7,8 +7,7 @@ import ItemListContainer from './containers/ItemListContainer.jsx'
 function App() {
     return ( <div className = "App">
                 <NavBar/>
-                <ItemListContainer greeting={"Elige el entrenamiento que más te guste"}>
-                </ItemListContainer>
+                <ItemListContainer/>
             </div>
     );
 }
