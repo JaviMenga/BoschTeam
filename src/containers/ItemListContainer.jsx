@@ -18,10 +18,10 @@ const ItemListContainer = () => {
             setListProduct([])
         })
     },[])
-
+    
 // Contenedor
     return ( 
-        <div style={{display:"flex", flexDirection:"column", alignItems:"center", marginTop:50}}>
+        <div>
             <ItemList product={listProduct}/>
         </div>
     )
