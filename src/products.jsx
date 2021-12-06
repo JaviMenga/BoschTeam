@@ -5,10 +5,9 @@ const products = [
 ]
 
 
-
 // Promise con mi array de productos
 export const getProduct = () => {
     return new Promise((resolve,reject)=>{
-      setTimeout(()=> resolve(products, 3000))
+      setTimeout(()=> resolve(products), 3000)
     })
 }
