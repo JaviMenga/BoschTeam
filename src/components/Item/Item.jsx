@@ -1,3 +1,4 @@
+
 const Item = (product) => {
     return(
         <div className="card" style={{width:"18rem", marginRight:50}}>
@@ -5,8 +6,8 @@ const Item = (product) => {
             <div className="card-body">
                 <h5 className="card-title">{product.title}</h5>
                 <p className="card-text">{product.description}</p>
-                <p className="card-text">{product.price}</p>
-                <a href="/#" className="btn btn-primary card-img-top">Ver detalle</a>
+                <p className="card-text">$ {product.price}</p>
+                <button className="btn btn-primary card-img-top"> Ver detalle</button>
             </div>
         </div>
     )    
