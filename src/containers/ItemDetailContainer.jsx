@@ -1,26 +1,28 @@
-import ItemDetail from "../components/ItemDetail/ItemDetail.jsx"
+import ItemDetail from '../components/ItemDetail/ItemDetail.jsx'
 import {useState, useEffect} from 'react'
-import {getItem} from '../products'
+import {getItemById} from '../products'
+import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
     
-    const [listItem, setListItem]=useState([])
-
+    const [listItem, setlistItem]=useState([])
+    const {detailId} = useParams()
+    
     useEffect(()=>{
-        const list = getItem()
+        const list = getItemById(detailId)
 
         list.then(response=>{
-            setListItem(response)
+            setlistItem(response)
         })
         return (()=>{
-            setListItem([])
+            setlistItem([])
         })
-    },[])
+    },[detailId])
 
 
 // Contenedor
     return ( 
-        <div>
+        <div style={{marginLeft:30}}>
             <ItemDetail title={listItem.title} detail={listItem.detail} img={listItem.img} price={listItem.price}/>
         </div>
     )
