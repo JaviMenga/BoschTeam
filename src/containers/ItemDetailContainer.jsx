@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
     
-    const [listItem, setlistItem]=useState([])
+    const [Item, setlistItem]=useState([])
     const {detailId} = useParams()
     
     useEffect(()=>{
@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
 // Contenedor
     return ( 
         <div style={{marginLeft:30}}>
-            <ItemDetail title={listItem.title} detail={listItem.detail} img={listItem.img} price={listItem.price}/>
+            <ItemDetail Item={Item}/>
         </div>
     )
 }
