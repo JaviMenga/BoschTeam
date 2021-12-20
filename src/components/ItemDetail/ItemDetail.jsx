@@ -1,14 +1,34 @@
-import ItemCount from '../ItemCount/ItemCount.jsx'
-import ButtonBuy from '../ButtonBuy/ButtonBuy.jsx'
+import ItemCount from '../ItemCount/ItemCount'
+import ButtonBuy from '../ButtonBuy/ButtonBuy'
 import { useState } from 'react'
 
+const ItemDetail = ({Item}) =>{
 
-const ItemDetail = ({Item, UserCount}) =>{
 
-    const [userCount,setUserCount]=useState(0)
-    console.log(UserCount)
+    const [userCount, setUserCount]= useState (0)
 
-    const Count = userCount > 0 ? ButtonBuy : ItemCount
+    const addItem = () => {
+        if(userCount<max){
+            setUserCount(userCount +1)
+        }
+    }
+
+    const removeItem = () => {
+        if (userCount>initial){
+            setUserCount(userCount -1)
+        }
+    }
+    
+    const onAdd =() =>{
+        if(userCount!==initial){
+            localStorage.setItem('cart', userCount)
+        }else{
+            alert('el numero ingresado no es válido, por favor agregar al menos 1 servicio ')
+        }
+    }
+    
+    const initial=0
+    const max=Item.stock
 
     return(
 
@@ -17,7 +37,7 @@ const ItemDetail = ({Item, UserCount}) =>{
             <div className='card-body'>
                 <h5 className='card-title'>{Item.title}</h5>
                 <p className='card-text'>{Item.detail}</p>
-                <Count max={Item.stock} initial={0}/>
+                {userCount!= max ? <ItemCount onAdd={onAdd} addItem={addItem} removeItem={removeItem} userCount={userCount}/> : <ButtonBuy/>}
             </div>
         </div>
 

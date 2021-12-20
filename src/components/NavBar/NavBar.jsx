@@ -25,8 +25,8 @@ const NavBar = () => {
                     <div className = 'collapse navbar-collapse' id = 'navbarNav'>                        
                         <ul className = 'navbar-nav ms-5 w-100'>
                             {categories.map(item=>
-                                <li className = 'nav-item ms-5'>
-                                    <Link className= 'nav-link' to={`/category/${item.category}`} key={item.id}>{item.category}</Link>
+                                <li className = 'nav-item ms-5' key={item.id}>
+                                    <Link className= 'nav-link' to={`/category/${item.category}`}>{item.category}</Link>
                                 </li>
                             )}
                             <div className='d-grid gap-2 d-md-flex justify-content-end w-100'>
