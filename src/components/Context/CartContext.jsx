@@ -9,17 +9,16 @@ export const CartContextProvider= ({children}) =>{
 
     const addToCart = (Item, cantidad) =>{
         const ok = isInCart(Item)
-        console.log(ok)
         if(ok){
             let ProductFound = cart.find(element=>element.item===Item)
-            console.log(ProductFound)
             ProductFound.cantidad += cantidad
             let cartAux = cart.filter(element=>element.item !== Item)
             setCart([...cartAux, ProductFound])
         }else{
-            console.log('no hay item found')
             setCart([...cart, {item:Item, cantidad:cantidad}])
         }
+        finalQuantity()
+        console.log(totalQuantity)
     }
     
     const removeToCart = (Item) =>{
@@ -36,8 +35,10 @@ export const CartContextProvider= ({children}) =>{
 
     }
 
-    const finalQuantity = (cantidad) =>{
-        setTotalQuantity([...totalQuantity, cantidad])
+    const finalQuantity = () =>{
+        let parcialQuantity=0
+        cart.forEach(element=>{parcialQuantity+=element.cantidad})
+        setTotalQuantity(parcialQuantity)
     }
 
     return(

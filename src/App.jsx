@@ -23,14 +23,14 @@ function App() {
     return (
     <BrowserRouter>
             <div className = 'App'>
-                <NavBar/>
                 <CartContextProvider>
-                    <Routes>
-                        <Route path='/' element={<ItemListContainer/>} /> 
-                        <Route path='/category/:categoryId' element={<ItemListContainer/>} />
-                        <Route path='/detail/:detailId' element={<ItemDetailContainer/>} />
-                        <Route path='/login' element={<Login/>} />
-                    </Routes>
+                    <NavBar/>
+                        <Routes>
+                            <Route path='/' element={<ItemListContainer/>} /> 
+                            <Route path='/category/:categoryId' element={<ItemListContainer/>} />
+                            <Route path='/detail/:detailId' element={<ItemDetailContainer/>} />
+                            <Route path='/login' element={<Login/>} />
+                        </Routes>
                 </CartContextProvider>
             </div>
     </BrowserRouter>
