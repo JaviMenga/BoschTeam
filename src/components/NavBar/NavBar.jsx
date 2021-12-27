@@ -1,18 +1,23 @@
 import brand from '../../assets/Bosch-Logo.png'
 import CartWidget from './CartWidget.jsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { getCategories } from '../../products';
 import {Link} from 'react-router-dom'
+import userContext from '../Context/userContext.jsx'
 
 const NavBar = () => {
-
     const [categories, setCategories] = useState([])
+    const {user, logout}=useContext(userContext)
 
     useEffect(()=>{
         getCategories().then(categories=>{
             setCategories(categories)
         })
     },[])
+
+    const handleLogout = () =>{
+        logout()
+    }
 
     return ( <nav className = 'navbar navbar-expand-lg navbar-light bg-light'>
                 <div className = 'container-fluid'>
@@ -30,7 +35,7 @@ const NavBar = () => {
                                 </li>
                             )}
                             <div className='d-grid gap-2 d-md-flex justify-content-end w-100'>
-                                <button className='btn btn-outline-secondary me-md-2' type='button'>LOGIN</button>
+                                {user?<button className='btn btn-outline-secondary me-md-2' type='button' onClick={handleLogout}>LOGOUT</button>:<Link className='btn btn-outline-secondary me-md-2' type='button' to={'/login'}>LOGIN</Link>}
                             </div>
                         </ul>
                         <CartWidget/>
