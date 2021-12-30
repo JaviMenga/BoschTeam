@@ -20,7 +20,6 @@ export const CartContextProvider= ({children}) =>{
     
         const removeFromCart = (ItemId) => {
             let newCart = cart.filter(element=>element.item.id !== ItemId)
-            console.log(newCart)
             setCart([...newCart])
             
         }

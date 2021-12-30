@@ -12,16 +12,13 @@ const Cart = () =>{
                 <Link to={'/'} className="btn btn-secondary m-5">Agregar productos</Link>
             </div> )   
     }
-
-    // const handleRemoveFromCart = (e) => {
-        
-    //     console.log('entré a Remove')
-    //     const ItemId = e.target.getAttribute('id')
-    //     removeFromCart(ItemId)
-    // }
+    let totalPrice = 0
+    cart.map(e=>{
+        totalPrice = totalPrice += (e.item.price*e.cantidad)
+    })
 
     return(<>
-        <table className="table">
+        <table className="table container">
             <thead>
                 <tr>
                     <th scope="col">Cantidad</th>
@@ -32,16 +29,22 @@ const Cart = () =>{
             <tbody>
                 {cart.map(element => (
                         <tr key={element.item.id}>
-                            <td><button className='btn btn-secondary me-2'>+</button>{element.cantidad}<button className='btn btn-secondary ms-2'>-</button></td>
+                            <td>{element.cantidad}</td>
                             <td>{element.item.name}</td>
                             <td>$ {element.item.price*element.cantidad}</td>
                             <td><button id ={element.item.id} className='btn btn-secondary' onClick={() => {removeFromCart(element.item.id)}}>Eliminar</button></td>
                         </tr>
                         ))
                 }
+                <tr>
+                    <td></td>
+                    <td><strong>Total</strong></td>
+                    <td>$ {totalPrice}</td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
-        <button className='btn btn-secondary' onClick={cleanCart}>Vaciar carrito</button>
+        <button className='btn btn-secondary' style={{marginLeft:"45vw"}} onClick={cleanCart}>Vaciar carrito</button>
         </>
             )
 }
