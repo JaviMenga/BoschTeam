@@ -13,9 +13,9 @@ const Cart = () =>{
             </div> )   
     }
     let totalPrice = 0
-    cart.map(e=>{
-        totalPrice = totalPrice += (e.item.price*e.cantidad)
-    })
+    cart.map(e=>(
+        totalPrice = totalPrice += (e.item.price*e.cantidad))
+    )
 
     return(<>
         <table className="table container">

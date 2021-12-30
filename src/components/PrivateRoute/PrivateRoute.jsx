@@ -4,8 +4,9 @@ import UserContext from '../Context/userContext'
 
 const PrivateRoute = ({children, ...rest}) => {
     const {user} = useContext(UserContext)
+    console.log(user)
 // Me lleva a inicio y no puedo logeuarme nunca
-    return user? {children}: <Navigate to={'/'}/>
+    return user? {children}: <Navigate to={'/login'}/>
 }
 
 export default PrivateRoute
