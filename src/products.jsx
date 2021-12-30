@@ -78,7 +78,7 @@ const categories=[
 // Promise con mi array de productos
 export const getProduct = () => {
     return new Promise((resolve, reject)=>{
-      setTimeout(()=> resolve(products), 500)
+      setTimeout(()=> resolve(products), 1000)
     })
 }
 

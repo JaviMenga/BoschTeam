@@ -13,7 +13,6 @@ export const UserContextProvider = ({children}) =>{
     const logout = () =>{
         setUser()
         window.localStorage.removeItem('user')
-        console.log('hola')
     }
 
     return(

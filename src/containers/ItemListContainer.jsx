@@ -2,14 +2,15 @@ import ItemList from '../components/ItemsList/ItemList'
 import {useState, useEffect} from 'react'
 import {getProduct, getProductByCategory} from '../products'
 import { useParams } from 'react-router-dom'
+import Loading from '../components/Loading/Loading'
 
 
 
 const ItemListContainer = () => {
     
     const [listProduct, setListProduct]=useState([])
+    const [loading, setLoading]=useState(true)
     const {categoryId} =useParams()
-
 
     useEffect(()=>{
 
@@ -18,12 +19,14 @@ const ItemListContainer = () => {
 
             list.then(response=>{
                 setListProduct(response)
+                setLoading(false)
             })
         }else{
             const list = getProduct()
 
             list.then(response=>{
                 setListProduct(response)
+                setLoading(false)
             })
         }
         
@@ -36,7 +39,7 @@ const ItemListContainer = () => {
 // Contenedor
     return ( 
         <div>
-            <ItemList product={listProduct}/>
+            {loading?<Loading/>:<ItemList product={listProduct}/>}
         </div>
     )
 }
