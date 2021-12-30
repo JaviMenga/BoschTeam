@@ -10,7 +10,7 @@ import {useEffect,useContext} from 'react'
 import userContext from './components/Context/userContext'
 import {CartContextProvider} from './components/Context/CartContext'
 import Cart from './components/Cart/Cart'
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+// import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
     const {login}=useContext(userContext)
@@ -32,7 +32,8 @@ function App() {
                             <Route path='/' element={<ItemListContainer/>} /> 
                             <Route path='/category/:categoryId' element={<ItemListContainer/>} />
                             <Route path='/detail/:detailId' element={<ItemDetailContainer/>} />
-                            <Route path='/login' element={<PrivateRoute><Login/></PrivateRoute>} />
+                            {/* <Route path='/login' element={<PrivateRoute><Login/></PrivateRoute>} /> */}
+                            <Route path='/login' element={<Login/>}/>
                             <Route path='/cart' element={<Cart/>} />
                             
                         </Routes>

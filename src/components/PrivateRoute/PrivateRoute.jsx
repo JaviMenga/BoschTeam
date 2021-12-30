@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { Navigate} from "react-router-dom";
-import UserContext from '../Context/userContext'
+// import { useContext } from "react";
+// import { Navigate} from "react-router-dom";
+// import UserContext from '../Context/userContext'
 
-const PrivateRoute = ({children, ...rest}) => {
-    const {user} = useContext(UserContext)
-    console.log(user)
-// Me lleva a inicio y no puedo logeuarme nunca
-    return user? {children}: <Navigate to={'/login'}/>
-}
+// const PrivateRoute = ({children, ...rest}) => {
+//     const {user} = useContext(UserContext)
 
-export default PrivateRoute
+// // Me lleva a inicio y no puedo loguearme nunca
+//     return user? {children} : <Navigate to={'/'}/>
+// }
+
+// export default PrivateRoute
