@@ -1,17 +1,24 @@
 import brand from '../../assets/Bosch-Logo.png'
 import CartWidget from './CartWidget.jsx';
 import { useEffect, useState, useContext } from 'react';
-import { getCategories } from '../../products';
 import {Link} from 'react-router-dom'
 import userContext from '../Context/userContext.jsx'
+import {getDocs, collection} from 'firebase/firestore'
+import { DataBase } from '../../Services/Firebase/Firebase';
 
 const NavBar = () => {
     const [categories, setCategories] = useState([])
     const {user, logout}=useContext(userContext)
 
+
     useEffect(()=>{
-        getCategories().then(categories=>{
+        getDocs(collection(DataBase,'categories')).then(querySnapshot=>{
+            const categories = querySnapshot.docs.map(doc=>{
+                return{id:doc.id, ...doc.data()}
+            })
             setCategories(categories)
+        }).catch((error)=>{
+            console.log('error searching categories', error)
         })
     },[])
 

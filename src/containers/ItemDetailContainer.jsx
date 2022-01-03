@@ -7,26 +7,14 @@ import { DataBase } from '../Services/Firebase/Firebase.jsx'
 
 const ItemDetailContainer = () => {
     
-    const [Item, setlistItem]=useState([])
+    const [Item, setItem]=useState([])
     const [loading, setLoading]=useState(true)
     const {detailId} = useParams()
-    
-    // useEffect(()=>{
-    //     const list = getItemById(detailId)
-
-    //     list.then(response=>{
-    //         setlistItem(response)
-    //         setLoading(false)
-    //     })
-    //     return (()=>{
-    //         setlistItem([])
-    //     })
-    // },[detailId])
 
     useEffect(()=>{
         getDoc(doc(DataBase, 'products', detailId)).then((querySnapshot)=>{
             const product = {id: querySnapshot.id, ...querySnapshot.data()}
-            setlistItem(product)
+            setItem(product)
         }).catch((error)=>{
             console.log('error searching item', error)
         }).finally(()=>{
