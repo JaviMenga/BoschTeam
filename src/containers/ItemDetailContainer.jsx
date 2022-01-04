@@ -13,15 +13,16 @@ const ItemDetailContainer = () => {
 
     useEffect(()=>{
         getDoc(doc(DataBase, 'products', detailId)).then((querySnapshot)=>{
-            const product = {id: querySnapshot.id, ...querySnapshot.data()}
+            const product = {id: querySnapshot,...querySnapshot.data()
+            }
             setItem(product)
         }).catch((error)=>{
             console.log('error searching item', error)
         }).finally(()=>{
-            setLoading(false)
+            setLoading(false)            
         })
-    })
-
+    },[detailId])
+    
 
 // Contenedor
     return ( 

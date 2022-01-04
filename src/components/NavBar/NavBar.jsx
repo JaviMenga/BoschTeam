@@ -1,4 +1,3 @@
-import brand from '../../assets/Bosch-Logo.png'
 import CartWidget from './CartWidget.jsx';
 import { useEffect, useState, useContext } from 'react';
 import {Link} from 'react-router-dom'
@@ -29,7 +28,7 @@ const NavBar = () => {
     return ( <nav className = 'navbar navbar-expand-lg navbar-light bg-light'>
                 <div className = 'container-fluid'>
                     <Link className = 'navbar-brand' to={'/'}>
-                        <img src={brand} className='brand' alt='brand'/>
+                        <img src={'/assets/Bosch-Logo.png'} className='brand' alt='brand'/>
                     </Link>
                     <button className = 'navbar-toggler' type = 'button' data-bs-toggle = 'collapse' data-bs-target = 'navbarNav' aria-controls = 'navbarNav' aria-expanded = 'false' aria-label = 'Toggle navigation'>
                         <span className = 'navbar-toggler-icon'> </span>

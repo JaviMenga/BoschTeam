@@ -41,30 +41,6 @@ const ItemListContainer = () => {
             setListProduct([])
         })
     },[categoryId])
-
-    // useEffect(()=>{
-
-    //     if(categoryId !== undefined){
-    //         const list = getProductByCategory(categoryId)
-
-    //         list.then(response=>{
-    //             setListProduct(response)
-    //             setLoading(false)
-    //         })
-    //     }else{
-    //         const list = getProduct()
-
-    //         list.then(response=>{
-    //             setListProduct(response)
-    //             setLoading(false)
-    //         })
-    //     }
-        
-    //     return (()=>{
-    //         setListProduct([])
-    //     })
-
-    // },[categoryId])
     
 // Contenedor
     return ( 

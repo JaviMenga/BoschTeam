@@ -1,9 +1,13 @@
 import {Link} from 'react-router-dom'
 
+
 const Item = (product) => {
+
+const image=product.img.substr(1)
+
     return(
         <div className='card shadow p-3 mb-5 bg-body rounded' style={{width:'17rem', marginRight:50}}>
-            <img src={product.img} className='card-img-top' style={{height:'35vh'}} alt='Imagen de entrenamiento'/>
+            <img src={image} className='card-img-top' style={{height:'35vh'}} alt='Imagen de entrenamiento'/>
             <div className='card-body' style={{height:170}}>
                 <h5 className='card-title'>{product.title}</h5>
                 <p className='card-text'>$ {product.price}</p>
