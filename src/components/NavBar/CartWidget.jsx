@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
-    // No me renderiza el total de productos
+    
     const {finalQuantity}=useContext(Context)
 
     return (

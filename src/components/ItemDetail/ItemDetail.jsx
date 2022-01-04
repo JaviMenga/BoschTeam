@@ -18,7 +18,6 @@ const ItemDetail = ({Item}) =>{
     const removeItem = () => {
         if (userCount>initial){
             setUserCount(userCount -1)
-            
         }
     }
 

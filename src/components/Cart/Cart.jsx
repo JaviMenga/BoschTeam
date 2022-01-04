@@ -23,7 +23,8 @@ const Cart = () =>{
                 <tr>
                     <th scope="col">Cantidad</th>
                     <th scope="col">Producto</th>
-                    <th scope="col">Precio</th>
+                    <th scope="col">Precio por Unidad</th>
+                    <th scope="col">Precio Final</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,13 +32,14 @@ const Cart = () =>{
                         <tr key={element.item.id}>
                             <td>{element.cantidad}</td>
                             <td>{element.item.name}</td>
+                            <td>{element.item.price}</td>
                             <td>$ {element.item.price*element.cantidad}</td>
                             <td><button id ={element.item.id} className='btn btn-secondary' onClick={() => {removeFromCart(element.item.id)}}>Eliminar</button></td>
                         </tr>
                         ))
                 }
                 <tr>
-                    <td></td>
+                    <td colSpan={2}></td>
                     <td><strong>Total</strong></td>
                     <td>$ {totalPrice}</td>
                     <td></td>

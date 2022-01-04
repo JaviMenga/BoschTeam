@@ -5,6 +5,7 @@ const Context = React.createContext()
 export const CartContextProvider= ({children}) =>{
 
     const [cart, setCart]=useState([])
+    console.log(cart)
 
     const addToCart = (Item, cantidad) =>{
         const ok = isInCart(Item)
