@@ -36,7 +36,7 @@ const NavBar = () => {
                     <div className = 'collapse navbar-collapse' id = 'navbarNav'>                        
                         <ul className = 'navbar-nav ms-5 w-100'>
                             {categories.map(item=>
-                                <li className = 'nav-item ms-5' key={item.id}>
+                                <li className = 'nav-item ms-5' key={item.id} style={{}}>
                                     <Link className= 'nav-link' to={`/category/${item.category}`}>{item.category}</Link>
                                 </li>
                             )}
